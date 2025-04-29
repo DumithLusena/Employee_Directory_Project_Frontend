@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 5rem;
     max-width: 40%;
-    height: 25rem;
+    height: 30rem;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -27,5 +27,9 @@
    height: 3rem;
    margin-top: 20px;
    margin-left: 25%;
+}
+
+#addCustomerForm label{
+    margin-left: 80px;
 }
 
