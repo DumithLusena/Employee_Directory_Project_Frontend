@@ -3,6 +3,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ViewEmployeeComponent } from './pages/view-employee/view-employee.component';
 import { AddEmployeeComponent } from './pages/add-employee/add-employee.component';
 import { LoginComponent } from './pages/login/login.component';
+import { UpdateEmployeeComponent } from './pages/view-employee/update-employee/update-employee.component';
 
 export const routes: Routes = [
     {
@@ -22,5 +23,9 @@ export const routes: Routes = [
                 component:AddEmployeeComponent
             }
         ]
+    },
+    {
+        path:"update-employee/:id",
+        component:UpdateEmployeeComponent
     }
 ];

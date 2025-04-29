@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-employee',
-  imports: [CommonModule,FormsModule, ReactiveFormsModule,],
+  imports: [CommonModule,FormsModule, ReactiveFormsModule],
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css'
 })

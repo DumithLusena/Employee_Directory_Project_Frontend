@@ -45,7 +45,14 @@
                   <td class="px-6 py-4">
                     {{ employee.updatedAt | date: 'yyyy-MM-dd' }}
                 </td>
-                                
+                <td class="px-6 py-4 space-x-2">
+                    <button (click)="deleteEmployee(employee.id)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                      Delete
+                    </button>
+                    <button (click)="navigateToUpdate(employee)" class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-500">
+                        Update
+                    </button>                      
+                </td>      
             </tr>
         </tbody>
     </table>

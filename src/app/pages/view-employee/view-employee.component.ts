@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Employee } from '../../model/employee';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-employee',
@@ -16,7 +17,7 @@ export class ViewEmployeeComponent{
   employeeList:Employee[] = [];
   newEmployee:Employee = new Employee(0,"", "", "", new Date(), new Date());
 
-  constructor(private employeeService: EmployeeService,private http:HttpClient) {
+  constructor(private employeeService: EmployeeService,private http:HttpClient,private router:Router) {
     this.loadEmployeesToTable();
   }
 
@@ -25,6 +26,17 @@ export class ViewEmployeeComponent{
       this.employeeList = employeeList;
     })
   }
-  
-  
+
+  deleteEmployee(id: number) {
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeService.deleteEmployee(id).subscribe(() => {
+        this.loadEmployeesToTable();
+      });
+    }
+  }
+
+  navigateToUpdate(employee: Employee) {
+    this.router.navigate(['/update-employee', employee.id]);
+  }
+   
 }

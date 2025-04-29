@@ -34,9 +34,5 @@ export class LoginComponent {
       alert("Invalid email or password");
     }
   }
-  
-  register() {
-    this.router.navigate(["/register"]);
-  }
 
 }
