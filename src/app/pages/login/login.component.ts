@@ -29,7 +29,7 @@ export class LoginComponent {
     }
   
     if (this.email === "admin@gmail.com" && this.password === "admin") {
-      this.router.navigate(["/dashboard"]);
+      this.router.navigate(["/dashboard/view-employees"]);
     } else {
       alert("Invalid email or password");
     }

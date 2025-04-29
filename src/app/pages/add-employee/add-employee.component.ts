@@ -13,7 +13,7 @@ export class AddEmployeeComponent {
 
   employeeForm: FormGroup;
   searchId: number = 0;
-  searchedEmployee: any = null;
+  searchedEmployee: any;
 
   constructor(private fb: FormBuilder, private employeeService: EmployeeService) {
     this.employeeForm = this.fb.group({
@@ -25,11 +25,22 @@ export class AddEmployeeComponent {
 
   addEmployee() {
     if (this.employeeForm.valid) {
-      this.employeeService.addEmployee(this.employeeForm.value).subscribe(res => {
-        alert('Employee added successfully!');
-        this.employeeForm.reset();
-      });
+      this.checkDuplicateEmail(this.employeeForm.value.email);
     }
+  }
+
+  checkDuplicateEmail(email: string) {
+    this.employeeService.getAllEmployees().subscribe(res => {
+      const duplicate = res.some(employee => employee.email === email);
+      if (duplicate) {
+        alert('This email is already in use. Please use a different email.');
+      } else {
+        this.employeeService.addEmployee(this.employeeForm.value).subscribe(res => {
+          alert('Employee added successfully!');
+          this.employeeForm.reset();
+        });
+      }
+    });
   }
 
   searchById() {
